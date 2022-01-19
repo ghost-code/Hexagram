@@ -34,7 +34,7 @@ extension Hexagram {
     }
 
     public var character: Character {
-        return .init(UnicodeScalar(19903 + number)!)
+        return Character(UnicodeScalar(19903 + number)!)
     }
 
     public var upperTrigram: UInt8 {
@@ -57,12 +57,12 @@ extension Hexagram {
 
     public var upperTrigramCharacter: Character {
         let upperTrigramIndex = 7 - Int(upperTrigram)
-        return .init(UnicodeScalar(9776 + upperTrigramIndex)!)
+        return Character(UnicodeScalar(9776 + upperTrigramIndex)!)
     }
 
     public var lowerTrigramCharacter: Character {
         let lowerTrigramIndex = 7 - Int(lowerTrigram)
-        return .init(UnicodeScalar(9776 + lowerTrigramIndex)!)
+        return Character(UnicodeScalar(9776 + lowerTrigramIndex)!)
     }
 
 }
