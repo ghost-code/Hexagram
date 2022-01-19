@@ -1,7 +1,8 @@
 import Foundation
 
-public struct Hexagram: Equatable, Hashable {
-
+public struct Hexagram: Equatable, Hashable, Identifiable {
+    
+    public var id: Int { number }
     public let lines: UInt8
     public let number: Int
     
@@ -21,6 +22,7 @@ public struct Hexagram: Equatable, Hashable {
         self.number = number
         self.lines = UInt8(Hexagram.linesToIndexTable.firstIndex { $0 == index }!)
     }
+
 }
 
 
@@ -52,7 +54,7 @@ extension Hexagram {
 
     public var lowerTrigramName: String {
         let characterProperties = lowerTrigramCharacter.unicodeScalars.first!.properties
-        return String(characterProperties.name!.dropFirst(12)).capitalized(with: .init(identifier: "en_US"))
+        return String(characterProperties.name!.dropFirst(12)).capitalized
     }
 
     public var upperTrigramCharacter: Character {
